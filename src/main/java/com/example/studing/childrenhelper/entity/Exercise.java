@@ -12,7 +12,7 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exerciseGen")
     @Column(name = "id")
     private Long id;
-    private String condition;
+    private String name;
     @ManyToMany(mappedBy = "exercises", cascade = CascadeType.ALL)
     private Set<Child> children = new HashSet<>();
     public Long getId() {
@@ -23,12 +23,12 @@ public class Exercise {
         this.id = id;
     }
 
-    public String getCondition() {
-        return condition;
+    public String getName() {
+        return name;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Set<Child> getChildren() {
