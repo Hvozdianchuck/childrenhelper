@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/child}" th:object="${child}">
+    <input id="firstname" placeholder="Firstname" type="text" th:text="${child.firstname}">
+    <input id="lastname" placeholder="Lastname" type="text" th:text="${child.lastname}">
+    <input id="exercise" placeholder="Firstname" type="text" th:text="${child.exerciseConditions[0]}">
+</form>
+</body>
+</html>
