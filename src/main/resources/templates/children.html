@@ -6,6 +6,21 @@
     <title>Title</title>
 </head>
 <body>
-
+<table>
+    <thead>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Exercise name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="child : ${children}">
+        <td th:text="${child.firstname}"></td>
+        <td th:text="${child.lastname}"></td>
+        <td th:text="${child.exerciseNames}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

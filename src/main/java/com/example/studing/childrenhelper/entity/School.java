@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 @Entity
-@Table(name="schools")
 public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "schoolGen")

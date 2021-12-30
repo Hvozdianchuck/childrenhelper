@@ -6,7 +6,6 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "children")
 public class Child {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "childGen")
@@ -17,7 +16,7 @@ public class Child {
     @Column(name = "lastname")
     private String lastname;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "children_exercises", joinColumns = {@JoinColumn(name = "child_Id")},
+    @JoinTable(joinColumns = {@JoinColumn(name = "child_Id")},
     inverseJoinColumns = {@JoinColumn(name = "exercise_id")})
     private Set<Exercise> exercises = new HashSet<>();
 

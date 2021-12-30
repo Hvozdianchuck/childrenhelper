@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "school_classes")
 public class SchoolClass {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "school_classGen")

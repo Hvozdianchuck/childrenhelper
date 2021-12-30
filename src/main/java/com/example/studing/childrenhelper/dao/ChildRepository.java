@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface ChildRepository extends JpaRepository<Child, Long> {
-    @Query("select c from Child c ")
+    @Query("select c from Child c join fetch c.exercises ex where ex.name like :exersiceName")
     List<Child> findChildren(@Param("exerciseName") String exerciseName);
 }

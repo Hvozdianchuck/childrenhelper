@@ -6,8 +6,7 @@ import java.util.List;
 public class ChildDto {
     private String firstname="";
     private String lastname="";
-    private List<String> exerciseNames = new ArrayList<>();
-
+    private String exerciseNames;
     public String getFirstname() {
         return firstname;
     }
@@ -24,11 +23,11 @@ public class ChildDto {
         this.lastname = lastname;
     }
 
-    public List<String> getExerciseNames() {
+    public String getExerciseNames() {
         return exerciseNames;
     }
 
-    public void setExerciseNames(List<String> exerciseNames) {
+    public void setExerciseNames(String exerciseNames) {
         this.exerciseNames = exerciseNames;
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Controller("/child")
+@Controller
 public class ChildController {
     private ChildService childService;
     private ChildConverter childConverter;
@@ -21,20 +21,19 @@ public class ChildController {
         this.childService = childService;
         this.childConverter = childConverter;
     }
-    @GetMapping
+    @GetMapping("/children")
     public String findChildren(@RequestParam("exerciseName") String exerciseName, Model model){
         model.addAttribute("children", childService.findChildren(exerciseName));
         return "children";
     }
-    @GetMapping("/addChild")
+    @GetMapping
     public String getAddChild(Model model) {
-        System.out.println("child");
         model.addAttribute("child", new ChildDto());
         return "addChild";
     }
     @PostMapping
     public String addChild(@ModelAttribute ChildDto childDto){
         childService.addChild(childDto);
-        return "redirect:children";
+        return "redirect:/children";
     }
 }
