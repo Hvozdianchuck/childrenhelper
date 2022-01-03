@@ -6,10 +6,10 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" th:action="@{/child}" th:object="${child}">
-    <input id="firstname" placeholder="Firstname" type="text" th:text="${child.firstname}">
-    <input id="lastname" placeholder="Lastname" type="text" th:text="${child.lastname}">
-    <input id="exerciseName" placeholder="Exercise name" type="text" th:text="${child.exerciseNames}">
+<form method="post" th:action="@{/child}" th:object="${childDto}">
+    <input id="firstname" placeholder="Firstname" type="text" th:field="*{firstname}">
+    <input id="lastname" placeholder="Lastname" type="text" th:field="*{lastname}">
+    <input id="exerciseName" placeholder="Exercise name" type="text" th:field="*{exerciseNames}">
     <input type="submit" value="Add Child">
 </form>
 </body>

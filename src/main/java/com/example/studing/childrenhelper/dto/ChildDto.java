@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChildDto {
-    private String firstname="";
-    private String lastname="";
+    private String firstname;
+    private String lastname;
     private String exerciseNames;
     public String getFirstname() {
         return firstname;

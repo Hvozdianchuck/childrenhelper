@@ -5,14 +5,12 @@ import com.example.studing.childrenhelper.dto.ChildDto;
 import com.example.studing.childrenhelper.service.ChildService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/child")
 public class ChildController {
     private ChildService childService;
     private ChildConverter childConverter;
@@ -22,18 +20,19 @@ public class ChildController {
         this.childConverter = childConverter;
     }
     @GetMapping("/children")
-    public String findChildren(@RequestParam("exerciseName") String exerciseName, Model model){
-        model.addAttribute("children", childService.findChildren(exerciseName));
+    public String findChildren(@RequestParam(name = "exerciseName", defaultValue = "") String exerciseName, Model model){
+       List<ChildDto> children = childService.findChildren(exerciseName);
+        model.addAttribute("children", children);
         return "children";
     }
     @GetMapping
     public String getAddChild(Model model) {
-        model.addAttribute("child", new ChildDto());
+        model.addAttribute("childDto", new ChildDto());
         return "addChild";
     }
     @PostMapping
-    public String addChild(@ModelAttribute ChildDto childDto){
+    public String addChild(@ModelAttribute("childDto") ChildDto childDto){
         childService.addChild(childDto);
-        return "redirect:/children";
+        return "redirect:/child/children";
     }
 }

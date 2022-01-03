@@ -12,7 +12,7 @@ public class ChildConverter extends AbstractConverter<Child, ChildDto>{
     public Child toEntity(ChildDto childDto) {
         Child child = new Child();
         Exercise exercise = new Exercise();
-        exercise.setName(childDto.getExerciseNames().isEmpty() ? "" : childDto.getExerciseNames());
+        exercise.setName(childDto.getExerciseNames() == null ? "" : childDto.getExerciseNames());
         child.setFirstname(childDto.getFirstname());
         child.setLastname(childDto.getLastname());
         child.addExercise(exercise);
@@ -22,8 +22,8 @@ public class ChildConverter extends AbstractConverter<Child, ChildDto>{
     @Override
     public ChildDto toDto(Child child) {
         ChildDto childDto = new ChildDto();
-        childDto.setFirstname(childDto.getFirstname());
-        childDto.setLastname(childDto.getLastname());
+        childDto.setFirstname(child.getFirstname());
+        childDto.setLastname(child.getLastname());
         childDto.setExerciseNames(child.getExercises().stream().map(x->x.getName()).collect(Collectors.joining()));
         return childDto;
     }

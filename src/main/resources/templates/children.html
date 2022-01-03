@@ -6,6 +6,10 @@
     <title>Title</title>
 </head>
 <body>
+<form method="get" th:action="@{/child/children}">
+    <label>Exercise name</label>
+    <input type="text" name="exerciseName"/>
+    <input type="submit" value="Find children">
 <table>
     <thead>
     <tr>
@@ -22,5 +26,6 @@
     </tr>
     </tbody>
 </table>
+</form>
 </body>
 </html>
